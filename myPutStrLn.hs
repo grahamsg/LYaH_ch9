@@ -1,4 +1,4 @@
-myPutStrLn :: String -> IO Char
+myPutStrLn :: [Char] -> IO ()
 myPutStrLn [] = putChar '\n'
 myPutStrLn (x:xs) = do 
     putChar x 

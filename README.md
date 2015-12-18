@@ -21,3 +21,8 @@ I can't seem to get a <code>myPutStrLn</code> to work. I tried
     myPutStrLn (x:xs) = do
         putChar x
         myPutStrLn xs
+
+It looks like the problem is the <code>return</code> statement. It should use <code>putChar</code> instead
+
+It appears that in the <code>getChar/putChar</code> example that the '\n' char is being captured and put as well
+
