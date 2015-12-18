@@ -27,9 +27,3 @@ It looks like the problem is the <code>return</code> statement. It should use <c
 It appears that in the <code>getChar/putChar</code> example that the '\n' char is being captured and put as well
 
 
-------
-
-Remove this later
-
--------
-
