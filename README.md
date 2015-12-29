@@ -5,13 +5,13 @@
     ghic> :t ()
     () :: ()
 
-Not sure why getLine is followed by a <- instead of an =
+Not sure why <code>getLine</code> is followed by a <code><-</code> instead of an <code>=</code>
 
 Oh, I see ... 'cause it's impure
 
-Oh, I see ... 'cause = would just bind the function to name, not the result.
+Oh, I see ... 'cause <code>=</code> would just bind the function to name, not the result.
 
-Can I bind getLine to name, and then use name in place of getLine (name becomes an alias for getLine)?
+Can I bind <code>getLine</code> to name, and then use name in place of <code>getLine</code> (name becomes an alias for <code>getLine</code>)?
     Yes
     
 I can't seem to get a <code>myPutStrLn</code> to work. I tried
