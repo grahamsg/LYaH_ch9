@@ -2,8 +2,8 @@
 
 ## Hello, world!
 
-ghic> :t ()
-() :: ()
+    ghic> :t ()
+    () :: ()
 
 Not sure why getLine is followed by a <- instead of an =
 
