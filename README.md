@@ -83,3 +83,9 @@ Then I get nothing. If I switch the last 2 lines it works. When I try to work on
 Not sure why the author used <code>openTempFile</code> instead of just closing the todo.txt and then reopening it for writing. I suppose the <code>openTempFile</code> implementation would be less likely to fail in the middle leaving a half-written file.
 
 ## Command line arguments
+
+I wanted to have my <code>add</code> and <code>delete</code> arguments be able to appear anywhere and use the <code>elemIndex</code> function and take whatever comes next to add or delete. I didn't try hard enough to get this to work.
+
+## Randomness
+
+No credit given to XKCD for that <code>randomNumber</code>!?
