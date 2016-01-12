@@ -89,3 +89,29 @@ I wanted to have my <code>add</code> and <code>delete</code> arguments be able t
 ## Randomness
 
 No credit given to XKCD for that <code>randomNumber</code>!?
+
+I wrote a <code>coinList</code> function that takes a <code>StdGen</code> and an <code>Integer</code> and then returns a list of <code>Bool</code>s. 
+
+    import System.Random
+
+    coinList :: StdGen -> Integer -> [Bool]
+    coinList _ 0 = []
+    coinList gen n =
+        let (coin, newGen) = random gen :: (Bool, StdGen)
+        in coin:(coinList NewGen (n-1))
+
+And then the author showed me that there was already a function for that (<code>randoms</code>). And the fact that it returns an infinite list fixes the problem that I had of needing to stop the list at some point. I still have a lot to learn about doing things the Haskell way. Perhaps I should reimplement my Fibbonacci code using infinite lists. And maybe my sqrt function too.
+
+And now he's implementing what I did. I think I like mine a bit better.
+
+Why does the getStdGen function exist? It seems like newStdGen always works.
+
+    import System.Random
+
+    main = do
+        gen <- newStdGen
+        putStrLn $ take 20 (randomRs ('a','z') gen)
+        gen' <- newStdGen
+        putStrLn $ take 20 (randomRs ('a','z') gen')
+
+works just the same as if the first <code>newStdGen</code> were <code>getStdGen</code>.
