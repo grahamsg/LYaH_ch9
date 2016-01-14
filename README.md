@@ -115,3 +115,28 @@ Why does the getStdGen function exist? It seems like newStdGen always works.
         putStrLn $ take 20 (randomRs ('a','z') gen')
 
 works just the same as if the first <code>newStdGen</code> were <code>getStdGen</code>.
+
+I didn't try hard, but I couldn't get <code>reads</code> to work.
+
+## Bytestrings
+
+I don't know much about how things are stored in different computers and how RAM might work differently on different computers, but it strikes me as odd that lazy bytestrings are always the same size (64&nbsp;K)
+
+I tried to get more than one chunk with
+
+    B.pack (take 70000 (repeat 8))
+
+I'm not sure if that did anything different
+
+Looking closer, I'm not seeing the <code>Chunk</code> thing at the beginning. I wonder if something's changed.
+
+## Exceptions
+
+I can't get catch to work. I get the following error
+
+   catchTest.hs:5:14: Not in scope: `catch' 
+
+Looks like the name I should be using is <code>catchIOError</code>, not <code>catch</code>.
+
+
+What's going on with the linebreaks in the <code>ioeGetFileName</code> example?
