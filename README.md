@@ -134,7 +134,7 @@ Looking closer, I'm not seeing the <code>Chunk</code> thing at the beginning. I 
 
 I can't get catch to work. I get the following error
 
-   catchTest.hs:5:14: Not in scope: `catch' 
+    catchTest.hs:5:14: Not in scope: `catch' 
 
 Looks like the name I should be using is <code>catchIOError</code>, not <code>catch</code>.
 
