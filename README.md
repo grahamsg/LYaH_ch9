@@ -58,7 +58,7 @@ I guess that what's going on in the example from the text is that Haskell is not
 
 I think the author's reading of the Avril Lavigne song misses the deeper meaning of the song, namely that Avril thinks that she should be the object of the song's new romantic partner
 
-I got the withFile example correct, but I didn't use a lambda for the <code> (Handle -> IO a) </code> function. Instead I had a named helper function.
+I got the <code>withFile</code> example correct, but I didn't use a lambda for the <code>(Handle -> IO a)</code> function. Instead I had a named helper function.
 
 I'm still a little unsure about type signatures with IO actions. My helper function returned an IO (), but I thought it should return an IO String.
 
@@ -66,6 +66,7 @@ It looks like in ReadWriteMode, if you write to the file, it will delete was in 
 
 I can't seem to read from a file, and then write to it using ReadWriteMode. I can write, and then read. When I try to write after a read, it says that the handle is closed.
 
+BOOKCLUB: Other folks hadn't looked at this. I'm think that if I had more experience with file IO in other languages it would make sense.
 
 I can't seem to read from a file, close the handle, and then do something with the contents of the file. In ghci if I do
 
@@ -79,6 +80,7 @@ I can't seem to read from a file, close the handle, and then do something with t
 
 Then I get nothing. If I switch the last 2 lines it works. When I try to work on this in ghci, <code>contents</code> is the empty string at the end of the program. If I use <code>contents</code> before closing the handle, then the data will be there. It must be some sort of complier optimization.
 
+BOOKCLUB: Consensus was that this was lazyness in action. Agreed that it shouldn't behave this way.
 
 Not sure why the author used <code>openTempFile</code> instead of just closing the todo.txt and then reopening it for writing. I suppose the <code>openTempFile</code> implementation would be less likely to fail in the middle leaving a half-written file.
 
@@ -116,6 +118,8 @@ Why does the getStdGen function exist? It seems like newStdGen always works.
 
 works just the same as if the first <code>newStdGen</code> were <code>getStdGen</code>.
 
+BOOKCLUB: Franco suggested that you might want to have the same StdGen at two places in the same program and you don't want to need to exchange seeds.
+
 I didn't try hard, but I couldn't get <code>reads</code> to work.
 
 ## Bytestrings
@@ -124,11 +128,13 @@ I don't know much about how things are stored in different computers and how RAM
 
 I tried to get more than one chunk with
 
-    B.pack (take 70000 (repeat 8))
+    B.pack (take 70000 (repeat 80))
 
 I'm not sure if that did anything different
 
 Looking closer, I'm not seeing the <code>Chunk</code> thing at the beginning. I wonder if something's changed.
+
+BOOKCLUB: It looks like it works this way for Dirk too. I think this is a change in Haskell. Hank noted that Haskell makes not promises of backwards compatability.
 
 ## Exceptions
 
@@ -140,3 +146,5 @@ Looks like the name I should be using is <code>catchIOError</code>, not <code>ca
 
 
 What's going on with the linebreaks in the <code>ioeGetFileName</code> example?
+
+BOOKCLUB: I think the wierd linebreaks was just a browser issue
